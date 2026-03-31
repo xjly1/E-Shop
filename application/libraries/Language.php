@@ -1,0 +1,53 @@
+<?php
+
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Language
+{
+
+    protected $CI;
+    private $urlAbbrevation;
+
+    public function __construct()
+    {
+        $this->CI = & get_instance();
+        $this->CI->load->model('Home_admin_model');
+        $this->CI->load->model('Public_model');
+        $segment = $this->CI->uri->segment(1);
+        $this->urlAbbrevation = $segment !== null ? strtolower($segment) : '';
+        $this->setLanguage();
+    }
+
+    private function setLanguage()
+    {
+        $defaultLanguageName = $language = $this->CI->config->item('language');
+        $languageAbbr = $this->CI->config->item('language_abbr');
+        $defaultLanguageAbbr = $myLanguage = $languageAbbr !== null ? strtolower($languageAbbr) : '';
+        $currency = $this->CI->config->item('currency');
+        $currencyKey = $this->CI->config->item('currencyKey');
+        $langLinkStart = '';
+  
+        if ($this->urlAbbrevation == $defaultLanguageAbbr) {
+            redirect(base_url());
+        } else {
+            $myLang = $this->CI->Public_model->getOneLanguage($this->urlAbbrevation);
+            if ($myLang != null) {
+                $myLanguage = $myLang['abbr'];
+                $language = $myLang['name'];
+                $currency = $myLang['currency'];
+                $currencyKey = $myLang['currencyKey'];
+                $langLinkStart = $myLanguage . '/';
+            }
+        }
+        $this->CI->lang->load("site", $language);
+
+        define('MY_LANGUAGE_FULL_NAME', $language);
+        define('MY_LANGUAGE_ABBR', $myLanguage);
+        define('MY_DEFAULT_LANGUAGE_ABBR', $defaultLanguageAbbr);
+        define('MY_DEFAULT_LANGUAGE_NAME', $defaultLanguageName);
+        define('CURRENCY', $currency);
+        define('CURRENCY_KEY', $currencyKey);
+        define('LANG_URL', rtrim(base_url($langLinkStart), '/'));
+    }
+
+}
