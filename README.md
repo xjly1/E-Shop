@@ -43,10 +43,12 @@ This makes the project a practical implementation of a real-world online store u
 ## Project Members
 This project was developed by:
 
-- **[Member 1 Name]**
-- **[Member 2 Name]**
-- **[Member 3 Name]**
-- **[Member 4 Name]**
+- **[Abdalaziz Mahdi Kadhim]**
+- **[Murtada Isaa Hassan]**
+- **[Karrar Haydir Abd Hashim]**
+- **[Hussen Saad]**
+- **[Ali Kadhim]**
+- **[Sabrin Muhammed]**
 
 > Replace the names above with the actual team members' names.
 
