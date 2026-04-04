@@ -41,7 +41,7 @@ This makes the project a practical implementation of a real-world online store u
 ---
 
 ## Project Members
-This project was developed by:
+This project developed by:
 
 - **[Abdalaziz Mahdi Kadhim]**
 - **[Murtada Isaa Hassan]**
@@ -49,8 +49,6 @@ This project was developed by:
 - **[Hussen Saad]**
 - **[Ali Kadhim]**
 - **[Sabrin Muhammed]**
-
-> Replace the names above with the actual team members' names.
 
 ---
 
